@@ -4,5 +4,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Article"
     RequestedTheme="Light">
-
+    <Application.Resources>
+        <Style x:Key="MenuButton" TargetType="Button">
+            <Setter Property="Width" Value="125"/>
+            <Setter Property="Height" Value="125"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <ContentControl>
+                            <TextBlock Text="{Binding}" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
+                        </ContentControl>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BackButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <FontIcon FontSize="15" Glyph="&#xE0A6;"/>
+                            <FontIcon FontSize="30" Glyph="&#xEA3A;"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
 </Application>

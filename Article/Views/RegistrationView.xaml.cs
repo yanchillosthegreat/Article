@@ -14,21 +14,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Article
+namespace Article.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class RegistrationView : UserControl
     {
-        public MainPageViewModel ViewModel { get; private set; }
+        public RegistrationViewModel ViewModel { get; private set; }
 
-        public MainPage()
+        public RegistrationView()
         {
             this.InitializeComponent();
-            this.DataContext = ViewModel = new MainPageViewModel();
+            this.DataContext = ViewModel = new RegistrationViewModel();
         }
     }
 }

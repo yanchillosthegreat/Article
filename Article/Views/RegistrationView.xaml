@@ -1,0 +1,50 @@
+﻿<UserControl
+    x:Class="Article.Views.RegistrationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ap="using:Article.Controls.AttachedProperties">
+    <Grid BorderBrush="Black" BorderThickness="1" Padding="10">
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="8,8,0,8"/>
+                <Setter Property="Width" Value="200"/>
+            </Style>
+            <Style TargetType="PasswordBox">
+                <Setter Property="Margin" Value="8,8,0,8"/>
+                <Setter Property="Width" Value="200"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Registration Form" 
+                   HorizontalAlignment="Stretch" TextAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="User Name" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Birthdate" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Email" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Password" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" IsSpellCheckEnabled="False"
+                 ap:TextBoxAttachedProperties.RegexPattern="." 
+                 ap:TextBoxAttachedProperties.IsValid="{Binding IsUserNameValid, Mode=TwoWay}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 ap:TextBoxAttachedProperties.RegexPattern="^\d{2}\.\d{2}\.\d{4}$" 
+                 ap:TextBoxAttachedProperties.IsValid="{Binding IsBirthdateValid, Mode=TwoWay}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" IsSpellCheckEnabled="False"
+                 ap:TextBoxAttachedProperties.RegexPattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$" 
+                 ap:TextBoxAttachedProperties.IsValid="{Binding IsEmailValid, Mode=TwoWay}" />
+        <PasswordBox Grid.Row="4" Grid.Column="1"
+                 ap:PasswordBoxAttachedProperties.RegexPattern="." 
+                 ap:PasswordBoxAttachedProperties.IsValid="{Binding IsPasswordValid, Mode=TwoWay}" />
+        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Register" HorizontalAlignment="Stretch" 
+                IsEnabled="{x:Bind ViewModel.IsRegisterButtonEnabled, Mode=OneWay}"/>
+    </Grid>
+</UserControl>
