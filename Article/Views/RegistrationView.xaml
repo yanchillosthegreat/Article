@@ -34,16 +34,16 @@
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Password" VerticalAlignment="Center"/>
         <TextBox Grid.Row="1" Grid.Column="1" IsSpellCheckEnabled="False"
                  ap:TextBoxAttachedProperties.RegexPattern="." 
-                 ap:TextBoxAttachedProperties.IsValid="{Binding IsUserNameValid, Mode=TwoWay}"/>
+                 ap:TextBoxAttachedProperties.IsValid="{x:Bind ViewModel.IsUserNameValid, Mode=TwoWay}"/>
         <TextBox Grid.Row="2" Grid.Column="1" 
                  ap:TextBoxAttachedProperties.RegexPattern="^\d{2}\.\d{2}\.\d{4}$" 
-                 ap:TextBoxAttachedProperties.IsValid="{Binding IsBirthdateValid, Mode=TwoWay}"/>
+                 ap:TextBoxAttachedProperties.IsValid="{x:Bind ViewModel.IsBirthdateValid, Mode=TwoWay}"/>
         <TextBox Grid.Row="3" Grid.Column="1" IsSpellCheckEnabled="False"
                  ap:TextBoxAttachedProperties.RegexPattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$" 
-                 ap:TextBoxAttachedProperties.IsValid="{Binding IsEmailValid, Mode=TwoWay}" />
+                 ap:TextBoxAttachedProperties.IsValid="{x:Bind ViewModel.IsEmailValid, Mode=TwoWay}" />
         <PasswordBox Grid.Row="4" Grid.Column="1"
                  ap:PasswordBoxAttachedProperties.RegexPattern="." 
-                 ap:PasswordBoxAttachedProperties.IsValid="{Binding IsPasswordValid, Mode=TwoWay}" />
+                 ap:PasswordBoxAttachedProperties.IsValid="{x:Bind ViewModel.IsPasswordValid, Mode=TwoWay}" />
         <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Register" HorizontalAlignment="Stretch" 
                 IsEnabled="{x:Bind ViewModel.IsRegisterButtonEnabled, Mode=OneWay}"/>
     </Grid>
