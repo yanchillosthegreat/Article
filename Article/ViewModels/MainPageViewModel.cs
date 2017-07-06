@@ -29,6 +29,9 @@ namespace Article.ViewModels
                 case PageType.Behaviors:
                     NavigationService.Instance.Navigate(typeof(BehaviorsPage));
                     break;
+                case PageType.EditingTemplates:
+                    NavigationService.Instance.Navigate(typeof(EditingTemplatesPage));
+                    break;
             }
         }
     }

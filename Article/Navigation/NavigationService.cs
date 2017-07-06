@@ -18,7 +18,8 @@ namespace Article.Navigation
     public enum PageType
     {
         AttachedProperties = 1,
-        Behaviors = 2
+        Behaviors = 2,
+        EditingTemplates = 3
     }
 
     public class NavigationService : INavigationService
